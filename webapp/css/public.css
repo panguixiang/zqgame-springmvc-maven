@@ -1,0 +1,102 @@
+* {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+BODY {
+	FONT-FAMILY: "宋体"; FONT-SIZE: 12px
+}
+.fl {
+	FLOAT: left
+}
+.fr {
+	FLOAT: right
+}
+.clear {
+	CLEAR: both
+}
+.tl {
+	TEXT-ALIGN: left
+}
+.tr {
+	TEXT-ALIGN: right
+}
+.tc {
+	TEXT-ALIGN: center
+}
+.fb {
+	FONT-WEIGHT: bold
+}
+.t2em {
+	TEXT-INDENT: 2em
+}
+.vmiddle {
+	VERTICAL-ALIGN: middle
+}
+.mr10px {
+	MARGIN-RIGHT: 10px
+}
+.ml3px {
+	MARGIN-LEFT: 3px
+}
+.ml10px {
+	MARGIN-LEFT: 10px
+}
+.ml6px {
+	MARGIN-LEFT: 6px
+}
+.mt6px {
+	MARGIN-TOP: 6px
+}
+.mt_6px {
+	_margin-top: 6px
+}
+.mt10px {
+	MARGIN-TOP: 10px
+}
+.mt20px {
+	MARGIN-TOP: 20px
+}
+.mt3px {
+	MARGIN-TOP: 3px
+}
+.mb10px {
+	MARGIN-BOTTOM: 10px
+}
+.mb30px {
+	MARGIN-BOTTOM: 30px
+}
+.pt10px {
+	PADDING-TOP: 10px
+}
+.pb10px {
+	PADDING-BOTTOM: 10px
+}
+.ft14px {
+	FONT-SIZE: 14px
+}
+FIELDSET {
+	BORDER-BOTTOM: medium none; BORDER-LEFT: medium none; BORDER-TOP: medium none; BORDER-RIGHT: medium none
+}
+IMG {
+	BORDER-BOTTOM: medium none; BORDER-LEFT: medium none; BORDER-TOP: medium none; BORDER-RIGHT: medium none
+}
+OL {
+	LIST-STYLE-TYPE: none; LIST-STYLE-IMAGE: none
+}
+UL {
+	LIST-STYLE-TYPE: none; LIST-STYLE-IMAGE: none
+}
+LI {
+	LIST-STYLE-TYPE: none; LIST-STYLE-IMAGE: none
+}
+.d_none {
+	DISPLAY: none
+}
+.cosor {
+	CURSOR: pointer
+}
+.zoom {
+	ZOOM: 1
+}
+.prelative {
+	POSITION: relative
+}

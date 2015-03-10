@@ -1,0 +1,213 @@
+@charset "utf-8";
+/* CSS Document */
+
+*{
+	margin:0;
+	padding:0;
+}
+html,body{
+	background:url(../frontimages/anquan/anquan_01.jpg) no-repeat top center #27001d;
+	font-size:12px;
+	color:#000;
+	text-align:center;
+	font-family:Arial, '宋体', '黑体', Verdana, Geneva, sans-serif;
+}
+table {
+	border-collapse:collapse;
+}
+img {
+	border:none;
+}
+li {
+	list-style:none;
+}
+.clear {		/*清除补丁*/
+	clear:both;
+	height:1px;
+	visibility:hidden;
+	overflow:hidden;
+}
+.FLOAT_LEFT {
+	float:left;
+}
+
+
+.bw_head{
+	width:1003px;
+	text-align:left;
+	margin:0 auto;
+	height:394px;
+	}
+.bw_topNav{
+	float:left;
+	clear:both;
+	padding-left:600px;
+	}
+.bw_topNav a{
+	color:#fff;
+	font-weight:bold;
+	text-decoration:none;
+	line-height:33px;
+	padding:0 13px;
+	*padding:0 11px;
+	}
+.bw_topNav a:hover{
+	color:#fffbbc;
+	}
+
+
+.bw_main{
+	width:1003px;
+	margin:0 auto;
+	text-align:left;
+	}
+
+
+.bw_menu{
+	float:left;
+	}
+.bw_menu a{
+	float:left;
+	line-height:69px;
+	width:250px;
+	text-decoration:none;
+	color:#000;
+	text-align:center;
+	}
+.menu01{
+	background:url(../frontimages/anquan/anquan_menu01_2.jpg) no-repeat top center;
+	}
+.menu01:hover{
+	background:url(../frontimages/anquan/anquan_menu01.jpg) no-repeat top center;
+	}
+.menu02{
+	background:url(../frontimages/anquan/anquan_menu02_2.jpg) no-repeat top center;
+	}
+.menu02:hover{
+	background:url(../frontimages/anquan/anquan_menu02.jpg) no-repeat top center;
+	}
+.menu03{
+	background:url(../frontimages/anquan/anquan_menu03_2.jpg) no-repeat top center;
+	}
+.menu03:hover{
+	background:url(../frontimages/anquan/anquan_menu03.jpg) no-repeat top center;
+	}
+.menu04{
+	background:url(../frontimages/anquan/anquan_menu04_2.jpg) no-repeat top center;
+	}
+.menu04:hover{
+	background:url(../frontimages/anquan/anquan_menu04.jpg) no-repeat top center;
+	}
+
+.bw_mod{
+	background:#f5ecda;
+	width:1000px;
+	border-top:1px solid #000;
+	float:left;
+	}
+.bw_sm{
+	width:860px;
+	color:#6d315f;
+	line-height:24px;
+	float:left;
+	margin:55px 58px 25px 58px;
+	*display:inline;
+	}
+.bw_box{
+	float:left;
+	width:448px;
+	height:265px;
+	background:#e7decd;
+	padding-top:10px;
+	color:#42353e;
+	margin:0 15px 25px 40px;
+	*display:inline;
+	}
+.bw_box02{
+	margin-left:0;
+	}
+.bw_box p{
+	line-height:20px;
+	margin:0 1em;
+	}
+.bw_box h3{
+	background:#68305a;
+	width:100%;
+	margin-bottom:1em;
+	*display:inline;
+	float:left;
+	}
+.bw_boxBut{
+	float:left;
+	width:100%;
+	margin-top:1em;
+	*display:inline;
+	}
+.bw_boxBut a{
+	float:right;
+	margin-right:10px;
+	background:url(../frontimages/anquan/anquan_but.jpg) no-repeat center;
+	width:125px;
+	line-height:30px;
+	text-align:center;
+	color:#f5ecda;
+	text-decoration:none;
+	*display:inline;
+	}
+.bw_boxBut02 a{
+	float:left;
+	margin-left:4.5em;
+	*display:inline;
+	}
+
+
+
+.bw_foo{
+	background:url(../frontimages/anquan/anquan_foot.jpg) no-repeat center top;
+	text-align:center;
+	color:#ab9c94;
+	width:100%;
+	height:254px;
+	}
+.bw_footMod{
+	width:1003px;
+	margin:0 auto;
+	text-align:left;
+	}
+.bw_footText{
+	margin-top:42px;
+	float:left;
+	*display:inline;
+	width:600px;
+	}
+.bw_footText p{
+	line-height:18px;
+	}
+.foot_logo{
+	float:left;
+	margin-top:32px;
+	margin-right:40px;
+	margin-left:79px;
+	*display:inline;
+	}
+
+
+
+.bw_mod h2{
+	margin:40px 20px 30px 20px;
+	font-size:22px;
+	color:#624a5a;
+	border-bottom:1px solid #c4b0af;
+	line-height:30px;
+	}
+.bw_text02{
+	margin:0px 120px 50px 50px;
+	}
+.bw_text02 p{
+	line-height:30px;
+	font-size:14px;
+	color:#4f3d49;
+	}
+.bw_text02 span{
+	color:#cd008b;
+	}

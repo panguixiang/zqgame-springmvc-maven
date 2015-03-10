@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zqgame.mappers.VotingDao">
+
+   <!-- 新增兵王活动-->
+	<insert id="save" parameterType="com.zqgame.models.Voting">
+	  <![CDATA[ 
+			INSERT INTO voting_0410(
+       			id,
+       			artId,
+       			Voting1,
+       			Voting2,
+       			Voting3,
+       			Voting4,
+       			Voting5,
+       			Voting6,
+       			Voting7,
+       			Voting8,
+       			createTime,
+       			Spare
+   				)
+	    	VALUES(
+	    		DEFAULT,
+	    		#{voting.artId}, 
+				#{voting.Voting1},
+				#{voting.Voting2},
+				#{voting.Voting3},
+				#{voting.Voting4},
+				#{voting.Voting5},
+				#{voting.Voting6},
+				#{voting.Voting7},
+				#{voting.Voting8},
+				NOW(),
+				#{voting.Spare}
+				)
+		 ]]>
+		 <selectKey keyProperty="voting.id" resultType="Long" order="AFTER">
+			select
+			LAST_INSERT_ID() AS ID
+		</selectKey> 
+	</insert>
+	
+	
+	<!-- 修改新闻评论 -->
+	<update id="update" parameterType="com.zqgame.models.Voting">
+	  <![CDATA[ 
+			UPDATE voting_0410
+	  ]]>		
+	  <set>		
+	  	<if test="voting.Voting1 != null">
+	  		<![CDATA[
+       			voting1 = #{voting.Voting1},
+       			]]>
+      	</if>
+       	<if test="voting.Voting2 != null">
+	  		<![CDATA[
+       			voting2 = #{voting.Voting2},
+       			]]>
+      	</if>
+      	<if test="voting.Voting3 != null">
+	  		<![CDATA[
+       			voting3 = #{voting.Voting3},
+       			]]>
+      	</if>
+      	<if test="voting.Voting4 != null">
+	  		<![CDATA[
+       			voting4 = #{voting.Voting4},
+       			]]>
+      	</if>
+      	<if test="voting.Voting5 != null">
+	  		<![CDATA[
+       			voting5 = #{voting.Voting5},
+       			]]>
+      	</if>
+      	<if test="voting.Voting6 != null">
+	  		<![CDATA[
+       			voting6 = #{voting.Voting6},
+       			]]>
+      	</if>
+      	<if test="voting.Voting7 != null">
+	  		<![CDATA[
+       			voting7 = #{voting.Voting7},
+       			]]>
+      	</if>
+      	<if test="voting.Voting8 != null">
+	  		<![CDATA[
+       			voting8 = #{voting.Voting8},
+       			]]>
+      	</if>
+	</set>		
+			WHERE 
+				id = #{voting.id}
+	</update>
+	
+	<!-- 根据新闻ID查询此条新闻被评论信息 -->
+    <select id="getVotingByArtId" resultType="com.zqgame.models.Voting"> 
+		<![CDATA[ 
+			SELECT 
+				id,
+       			artId,
+       			Voting1,
+       			Voting2,
+       			Voting3,
+       			Voting4,
+       			Voting5,
+       			Voting6,
+       			Voting7,
+       			Voting8,
+       			createTime,
+       			Spare
+   		 	FROM
+   		        voting_0410
+   		    WHERE
+   		        artId=#{artId}
+   		    Limit 1        
+   			 ]]>
+	</select> 
+	
+</mapper>	

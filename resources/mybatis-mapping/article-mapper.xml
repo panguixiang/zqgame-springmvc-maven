@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zqgame.mappers.ArticleDao">
+ 	
+	<!-- 修改新闻 -->
+	<update id="update" parameterType="com.zqgame.models.Article">
+	  <![CDATA[ 
+			UPDATE kz_article
+	  ]]>		
+	  <set>		
+	  	<if test="article.artTypeId != null">
+	  		<![CDATA[
+       			artTypeId = #{article.artTypeId},
+       			]]>
+      	</if>
+     	<if test="article.artTitle != null">
+     		<![CDATA[
+       			artTitle = #{article.artTitle},
+       			]]>
+       	</if>
+      	<if test="article.titlePicPath != null"> 	
+      		<![CDATA[		
+       			titlePicPath = #{article.titlePicPath},
+       			]]>
+       	</if>
+      	<if test="article.artPath != null">
+      		<![CDATA[
+       			artPath = #{article.artPath},
+      		 	]]>
+       	</if>
+      	<if test="article.source != null">
+      		<![CDATA[
+       			source = #{article.source},
+       			]]>
+       	</if>
+      	<if test="article.author != null">
+      		<![CDATA[
+       			author = #{article.author},
+       			]]>
+       	</if>
+      	<if test="article.artContent != null">
+      		<![CDATA[
+   				artContent = #{article.artContent},
+   				]]>
+   		</if>
+   		<if test="article.isHot != null">
+   			<![CDATA[
+   				isHot = #{article.isHot},
+   				]]>
+   		</if>
+   		<if test="article.isAuthen != null">
+   			<![CDATA[
+   				isAuthen = #{article.isAuthen},
+   				]]>
+   		</if>
+   		<if test="article.isUseLink != null">
+   			<![CDATA[
+   				isUseLink = #{article.isUseLink},
+   				]]>
+   		</if>
+   		<if test="article.linkUrl != null">
+   			<![CDATA[
+   				linkUrl = #{article.linkUrl},
+   				]]>
+   		</if>
+   		<if test="article.IsActivites != null">
+   			<![CDATA[
+   				IsActivites = #{article.IsActivites},
+   				]]>
+   		</if>
+   		<if test="article.createTime != null">
+   			<![CDATA[
+   				createTime = #{article.createTime},
+   				]]>
+   		</if>
+   		<if test="article.colorTitle != null">
+   			<![CDATA[
+   				colorTitle = #{article.colorTitle},
+   				]]>
+   		</if>
+   		<if test="article.titlePRI != null">
+   			<![CDATA[
+   				titlePRI = #{article.titlePRI},
+   				]]>
+   		</if>
+   		<if test="article.keywords != null">
+   			<![CDATA[
+   				keywords = #{article.keywords},
+   				]]>
+   		</if>
+   		<if test="article.description != null">
+   			<![CDATA[
+   				description = #{article.description}
+   				]]>
+   		</if>
+	</set>		
+			WHERE 
+				artId = #{article.artId}
+	</update>
+	
+	<!-- 查询最新的n条article纪录 -->
+    <select id="articleList"  resultType="Map"> 
+		SELECT 
+			<![CDATA[ 
+				a.artId,
+       			a.artTypeId,
+       			a.artTitle,
+       			a.titlePicPath,
+       			a.artPath,
+       			a.source,
+       			a.author,
+       			a.hits,
+       			a.templateId,
+   				a.artContent,
+   				a.isHot,
+   				a.isAuthen,
+   				a.isUseLink,
+   				a.linkUrl,
+   				a.createTime,
+   				a.isActivites,
+   				a.colorTitle,
+   				a.titlePRI,
+   				a.keywords,
+   				a.description,
+   				b.artTypeName
+   		 FROM
+   		        kz_article a,kz_articletype b
+   		 WHERE       
+   				a.artTypeId=b.artTypeId
+   		 AND
+   		        b.dirName != "topnews"		        
+   		 ORDER BY
+   		        a.createTime
+   		 DESC,       
+   		        a.isHot  
+   		 DESC
+   		 LIMIT
+   		       #{map.begin},#{map.end}              
+   			 ]]>
+	</select> 
+	
+	
+	<!-- 关联查询 根据新闻类别表中dirName查询新闻列表 -->
+    <select id="articleByMap" resultType="Map"> 
+		<![CDATA[ 
+			SELECT 
+				a.artId,
+       			a.artTypeId,
+       			a.artTitle,
+       			a.titlePicPath,
+       			a.artPath,
+       			a.source,
+       			a.author,
+       			a.hits,
+       			a.templateId,
+   				a.artContent,
+   				a.isHot,
+   				a.isAuthen,
+   				a.isUseLink,
+   				a.linkUrl,
+   				a.createTime,
+   				a.isActivites,
+   				a.colorTitle,
+   				a.titlePRI,
+   				a.keywords,
+   				a.description,
+   				b.artTypeName
+   		 FROM
+   		   kz_article a,kz_articletype b,kz_articletype c 
+   		 WHERE 
+   		   a.artTypeId=b.artTypeId 
+   		 AND 
+   		   b.parentId=c.artTypeId
+   		 AND 
+   		   b.dirName=#{map.dirName}
+   		 ORDER BY
+   		   a.createTime
+   		 DESC,  
+   		   a.isHot
+   		 DESC
+   		 LIMIT
+   		   #{map.begin},#{map.end}           
+   			]]>
+	</select> 
+	
+	<!-- 关联查询 根据新闻类别表中dirName查询新闻列表 -->
+    <select id="articlePage" resultType="Map"> 
+		<![CDATA[ 
+			SELECT 
+				a.artId,
+       			a.artTypeId,
+       			a.artTitle,
+       			a.titlePicPath,
+       			a.artPath,
+       			a.source,
+       			a.author,
+       			a.hits,
+       			a.templateId,
+   				a.artContent,
+   				a.isHot,
+   				a.isAuthen,
+   				a.isUseLink,
+   				a.linkUrl,
+   				a.createTime,
+   				a.isActivites,
+   				a.colorTitle,
+   				a.titlePRI,
+   				a.keywords,
+   				a.description,
+   				b.artTypeName
+   		 FROM
+   		   kz_article a,kz_articletype b,kz_articletype c 
+   		 WHERE 
+   		   a.artTypeId=b.artTypeId 
+   		 AND 
+   		   b.parentId=c.artTypeId
+   		 AND  
+   		 ]]>
+   		 <if test="map.dirName != null and map.dirName == 'news' ">
+   			<![CDATA[
+   				c.dirName=#{map.dirName}
+   				]]>
+   		</if>
+   		<if test="map.dirName != null and map.dirName != 'news' ">
+   			<![CDATA[
+   				b.dirName=#{map.dirName}
+   				]]>
+   		</if>
+   		<if test="map.artTitle != null and map.artTitle!='' ">
+   			<![CDATA[
+   				a.artTitle LIKE #{map.artTitle}
+   				]]>
+   		</if>
+   		<![CDATA[   
+   		 ORDER BY
+   		   a.isHot
+   		 DESC,  
+   		   a.createTime
+   		 DESC
+   			]]>
+	</select>
+	
+	<!-- 根据Id主键查询新闻Object -->
+	<select id="getArticleById" parameterType="java.lang.Long" resultType="com.zqgame.models.Article"> 
+		SELECT 
+			<![CDATA[ 
+				artId,
+       			artTypeId,
+       			artTitle,
+       			titlePicPath,
+       			artPath,
+       			source,
+       			author,
+       			hits,
+       			templateId,
+   				artContent,
+   				isHot,
+   				isAuthen,
+   				isUseLink,
+   				linkUrl,
+   				createTime,
+   				isActivites,
+   				colorTitle,
+   				titlePRI,
+   				keywords,
+   				description
+   		 FROM
+   		        kz_article
+   		 WHERE
+   		        artId = #{id}   
+   		 Limit 1           
+   			 ]]>
+	</select> 
+	
+	
+	<!-- 查询一条最新头条新闻 优先级为10  -->
+	<select id="topNews" resultType="com.zqgame.models.Article"> 
+			<![CDATA[ 
+			SELECT 
+				a.artId,
+       			a.artTypeId,
+       			a.artTitle,
+       			a.titlePicPath,
+       			a.artPath,
+       			a.source,
+       			a.author,
+       			a.hits,
+       			a.templateId,
+   				a.artContent,
+   				a.isHot,
+   				a.isAuthen,
+   				a.isUseLink,
+   				a.linkUrl,
+   				a.createTime,
+   				a.isActivites,
+   				a.colorTitle,
+   				a.titlePRI,
+   				a.keywords,
+   				a.description
+   		 FROM
+   		   kz_article a,kz_articletype b,kz_articletype c 
+   		 WHERE 
+   		   a.artTypeId=b.artTypeId 
+   		 AND 
+   		   b.parentId=c.artTypeId
+   		 AND 
+   		   b.dirName='topnews'
+   		 ORDER BY
+   		   a.createTime
+   		 DESC   
+   		 LIMIT
+   		   1
+   			 ]]>
+	</select> 
+	
+	
+	<!-- 根据Id删除新闻记录 -->
+	<delete id="deleteArticleById" parameterType="java.lang.Long">
+		<![CDATA[
+	 		 DELETE FROM 
+	 		 			kz_article 
+	 		 		WHERE
+	 		 		 	artId = #{id}
+		  ]]>
+	</delete>
+	
+</mapper>

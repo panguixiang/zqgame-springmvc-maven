@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zqgame.mappers.ImagesDao">
+
+	<!-- 根据pictypeId分页查询图片列表 -->
+    <select id="getImageList" parameterType="java.lang.String" resultType="com.zqgame.models.ImageInfo"> 
+		<![CDATA[ 
+			SELECT
+				i.id,
+       			typeId,
+       			i.index,
+       			imagePath,
+       			imageUrl,
+       			imageAbspath,
+       			imageName
+   		 	FROM
+   		        kz_images i,kz_type t
+   		 	WHERE
+   		 		i.typeId = t.id AND t.dirName = #{dirName}
+   		 	ORDER BY
+   		        i.index           
+   		]]>
+	</select> 
+</mapper>

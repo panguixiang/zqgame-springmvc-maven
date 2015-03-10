@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zqgame.mappers.PictureDao">
+ 	
+	<!-- 关联查询 根据图片类别表中dirName查询图片列表 -->
+    <select id="picturePage" resultType="Map"> 
+		<![CDATA[ 
+			SELECT 
+				a.picId,
+       			a.picTypeId,
+       			a.picPath,
+       			a.isAuthen,
+       			a.isFirstShow,
+       			a.createTime,
+       			a.picSize,
+       			a.picInfo,
+       			a.gameServer,
+   				a.gameRoleName,
+   				a.sex,
+   				a.age,
+   				a.friendType,
+   				a.email,
+   				a.address,
+   				a.qqNumber,
+   				a.personalIntro,
+   				b.pictypeName
+   		 FROM
+   		   kz_picture a, kz_picturetype b
+   		 WHERE 
+   		   a.picTypeId=b.picTypeId 
+   		 AND
+   		   isAuthen=1
+   		 AND 
+   		   b.dirName=#{map.dirName}
+   		 ORDER BY
+   		   a.createTime
+   		 DESC
+   			]]>
+	</select>
+	
+	<!-- 添加图片 -->
+	<insert id="createPicture" parameterType="com.zqgame.models.Picture">
+	  <![CDATA[ 
+			INSERT INTO kz_picture(
+       			picId,
+       			picTypeId,
+       			gameRoleName,
+       			picInfo,
+   				picPath,
+   				isAuthen,
+   				createTime)
+	    	VALUES(
+	    		DEFAULT,
+	    		#{picture.picTypeId}, 
+	    		#{picture.gameRoleName}, 
+				#{picture.picInfo},
+				#{picture.picPath},
+				0,
+				now()
+			)
+		 ]]>
+		 <selectKey keyProperty="picture.picId" resultType="java.lang.Long" order="AFTER">
+			select
+			LAST_INSERT_ID() AS ID
+		</selectKey> 
+	</insert>
+	
+	 	
+	<!-- 图片类型 -->
+    <select id="pictureTypeListByDirName" resultType="com.zqgame.models.PictureType"> 
+		<![CDATA[ 
+			SELECT picTypeId,
+				picTypeName,
+				dirName 
+			FROM kz_picturetype 
+			WHERE 
+				dirname=#{dirName}
+   			]]>
+	</select>
+</mapper>

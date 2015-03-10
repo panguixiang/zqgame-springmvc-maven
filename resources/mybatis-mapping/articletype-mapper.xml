@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zqgame.mappers.ArticleTypeDao">
+
+	<!-- 根据新闻类别表主键Id查询新闻类别Object -->
+	<select id="getArticleTypeById" parameterType="java.lang.Long"
+		resultType="com.zqgame.models.ArticleType">
+		 <![CDATA[ 
+			SELECT 
+				artTypeId,
+			 	artTypeName,
+			 	dirName, 
+			 	parentId, 
+			 	deep,
+			 	template 
+			 FROM 
+			 	kz_articletype
+			 WHERE
+			 	artTypeId = #{id}
+			 Limit 1	
+			]]>
+	</select>
+
+    <!-- 根据新闻分类表dirName字段查询出所有子级新闻类别列表 -->
+	<select id="articleTypeListByDirName" parameterType="com.zqgame.models.ArticleType"
+		resultType="com.zqgame.models.ArticleType">
+		<![CDATA[ 
+			SELECT 
+				a.artTypeId, 
+				a.artTypeName, 
+				a.dirName, 
+				a.parentId, 
+				a.deep,
+				a.template
+			FROM 
+				kz_articletype AS a
+			INNER JOIN
+			    kz_articletype AS b
+			ON
+			    a.parentId=b.artTypeId
+			AND
+			    b.dirName = #{dirName}        	
+				]]>
+	</select>
+
+    <!-- 根据dirName字段查询出单个新闻分类Object -->
+	<select id="getArticleTypeByDirName" parameterType="com.zqgame.models.ArticleType"
+		resultType="com.zqgame.models.ArticleType">
+	 	 <![CDATA[ 
+			SELECT 
+				artTypeId, 
+				artTypeName, 
+				dirName, 
+				parentId, 
+				deep,
+				template 
+		    FROM 
+		    	kz_articletype 
+		    WHERE 
+		        dirName=#{dirName}
+		    Limit 1    
+		        ]]>
+	</select>
+
+	<!-- 根据父级Id查询子级列表 -->
+	<select id="articleTypeListByParentId" parameterType="java.lang.Long"
+		resultType="com.zqgame.models.ArticleType">
+	  		<![CDATA[
+				SELECT 
+					artTypeId, 
+					artTypeName, 
+					dirName, 
+					parentId, 
+					deep,
+					template 
+				FROM 
+			  		kz_articletype 
+				WHERE 
+			 		parentId=#{id}
+			 	ORDER BY artTypeId
+			 	]]>
+	</select>
+	
+	<!-- 根据子类Id查询大类对象 -->
+	<select id="fatherArticleTypeBySonId" parameterType="java.lang.Long"
+		resultType="com.zqgame.models.ArticleType">
+	  		<![CDATA[
+				SELECT
+					b.artTypeId,
+					b.artTypeName, 
+					b.dirName, 
+					b.parentId, 
+					b.deep,
+					b.template 
+				FROM 
+					kz_articletype AS a 
+				INNER JOIN 
+					kz_articletype AS b 
+				ON 
+					a.parentId=b.artTypeId 
+				AND 
+					a.artTypeId = #{id}
+				Limit 1	
+			 	]]>
+	</select>
+ 
+</mapper>

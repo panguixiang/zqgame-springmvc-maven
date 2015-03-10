@@ -1,0 +1,155 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>客户端新闻--兵王</title>
+<link rel="stylesheet" type="text/css" href="images2/css.css"/>
+<SCRIPT type=text/javascript src="http://static.zqgame.com/js/jquery-1.7.2.js"></SCRIPT>
+<SCRIPT type=text/javascript src="http://static.zqgame.com/js/common.js"></SCRIPT>
+<script type="text/javascript">
+	function getQueryParams(qs) {
+		qs = qs.split("+").join(" ");
+		var params = {}, tokens,
+			re = /[?&]?([^=]+)=([^&]*)/g;
+		while (tokens = re.exec(qs)) {
+			params[decodeURIComponent(tokens[1])]
+				= decodeURIComponent(tokens[2]);
+		}
+		return params;
+	}
+	function setTab(id) {
+		for (var i = 1; i <= 5; i++) {
+			var oDiv = document.getElementById("u" + i).style.display = "none"
+				var oa = document.getElementById("h" + i).className = "";
+		}
+		if(id == 1 || id == 5 ){
+			document.getElementById("news_head").style.display = "none";
+		} else {
+			document.getElementById("news_head").style.display = "block";
+		}
+		document.getElementById("u" + id).style.display = "block";
+		document.getElementById("h" + id).className = "flat";
+		document.getElementById("h5").className = "last";
+		if ( id == 5 ) {
+			document.getElementById("h5").className = "flat last";
+		}
+	}
+	var params = getQueryParams(window.location.search);
+	var state = parseInt(params['state']);
+	window.onload=function(ev){
+		if( state == 0 ){
+			setTab(2);
+		}
+	};
+</script>
+</head>
+
+<body>
+<div class="main">
+	<div class="newsTitle">
+    	<h4 id="h1" class="flat" onmouseover="setTab(1);"><a href="javascript:void(0);">我要注册</a></h4>
+    	<h4 id="h2" onmouseover="setTab(2);"><a href="/Main/ListPage.aspx" target="_blank">最近更新</a></h4>
+    	<h4 id="h3" onmouseover="setTab(3);"><a  href="/Main/ListPage.aspx?type=gamenews" target="_blank">新闻中心</a></h4>
+    	<h4 id="h4" onmouseover="setTab(4);"><a  href="/Main/ListPage.aspx?type=actnews" target="_blank">活动中心</a></h4>
+    	<h4 id="h5" class="last" onmouseover="setTab(5);"><a  href="javascript:void(0);" style="color:#FFC !important; font-weight:bold !important;">角色查询</a></h4>
+    </div>
+    <div class="newsCon">
+    
+    <div id="news_head" style="display:none">
+        <h3 id="topNewsId"></h3>
+<p style="text-align:center;" id="pActionId">
+</p>
+	  </div>
+        <ul id="u1" class="u1">
+          <iframe width="215" scrolling="NO" height="230" frameborder="0" src="http://bw.zqgame.com/reg/fom/reg_quick_qq.html?ad=xhooxt0t" allowtransparency="true" id="frame1" border="0px" frameboder="0"></iframe>
+        </ul>
+        <ul id="u2" style="display:none;">
+        </ul>
+        <ul id="u3" style="display:none;">
+        </ul>
+        <ul id="u4" style="display:none;">
+        </ul>
+        <ul id="u5" style="display:none;">
+          <iframe width="345" scrolling="NO" height="232" frameborder="0" src="http://wg.bwgame.org/iframe/query_roles/" allowtransparency="true" id="frame1" border="0px" frameboder="0"></iframe>
+        </ul>
+    </div>
+    <script language="javascript">
+        $.ajax({
+			url:"/indexnews",
+			type : "POST",
+			dataType: "json",
+			success:function(data) {
+				//头条新闻
+				var jsonObj;
+				if(data.topNews != null) {
+					createhtml="";
+					jsonObj = data.topNews;
+					if(null != jsonObj){	
+						createhtml ="<a href='" + jsonObj.artPath + "'target=_blank class='linkbai bw_HLines'>"+ jsonObj.artTitle + "</a>";
+					}
+					$("#topNewsId").html(createhtml);
+				}
+				
+				//遍历横向活动 新闻
+				if(data.topLinkList != null) {
+					createhtml="";
+					jsonObj = eval(data.topLinkList);
+					$(jsonObj).each(function(index) {
+						var val = jsonObj[index];
+						createhtml +="<A href='" + val.linkUrl + "' target=_blank>"+ val.linkTitle + "</A>"; 
+					});
+					$("#pActionId").html(createhtml);
+				}
+				//遍历最新列表
+				if(data.mustnew != null) {
+					createhtml="";
+					jsonObj = eval(data.mustnew); 
+					$(jsonObj).each(function(index) {  
+						var val = jsonObj[index];
+						if(val.isHot==1) {
+							createhtml +="<li><span><img src='images2/news_hot.gif' alt='' /></span><a href='/" + val.artPath + "' title='"+val.artTitle+"' target=_blank><strong>【"+val.artTypeName+"】</strong>"+ val.artTitle + "</a></li>"; 
+						} else {
+							createhtml +="<li><span>["+dateFmt(val.createTime,'MM/dd')+"]</span><a href='/" + val.artPath + "' title='"+val.artTitle+"' target=_blank><strong>【"+val.artTypeName+"】</strong>"+ val.artTitle + "</a></li>"; 
+						}  
+					});
+					$("#u2").html(createhtml);
+				}
+				//遍历新闻列表 
+				if(data.gamenews != null) {
+					createhtml="";
+					jsonObj = eval(data.gamenews); 
+					$(jsonObj).each(function(index) { 
+						var val = jsonObj[index];
+						if(val.isHot==1) {
+							createhtml +="<li><span><img src='images2/news_hot.gif' alt='' /></span><a href='/" + val.artPath + "' title='"+val.artTitle+"' target=_blank><strong>【"+val.artTypeName+"】</strong>"+ val.artTitle + "</a></li>"; 
+						} else {
+							createhtml +="<li><span>["+dateFmt(val.createTime,'MM/dd')+"]</span><a href='/" + val.artPath + "' title='"+val.artTitle+"' target=_blank><strong>【"+val.artTypeName+"】</strong>"+ val.artTitle + "</a></li>"; 
+						}  
+					});
+					$("#u3").html(createhtml); 
+				}
+				//遍历活动竖向列表   
+					alert(data.actnews);
+				if(data.actnews != null) {
+					createhtml="";
+					jsonObj = eval(data.actnews); 
+					$(jsonObj).each(function(index) { 
+						var val = jsonObj[index];
+						if(val.isHot==1) {
+							createhtml +="<li><span><img src='images2/news_hot.gif' alt='' /></span><a href='/" + val.artPath + "' title='"+val.artTitle+"' target=_blank><strong>【"+val.artTypeName+"】</strong>"+ val.artTitle + "</a></li>"; 
+						} else {
+							createhtml +="<li><span>["+dateFmt(val.createTime,'MM/dd')+"]</span><a href='/" + val.artPath + "' title='"+val.artTitle+"' target=_blank><strong>【"+val.artTypeName+"】</strong>"+ val.artTitle + "</a></li>"; 
+						}  
+					});
+					$("#u4").html(createhtml); 
+				  }
+				}
+			});
+        </script>
+</div>
+</body>
+</html>
+
+

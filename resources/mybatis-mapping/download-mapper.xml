@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zqgame.mappers.DownloadDao">
+	
+	<!-- 查询下载信息列表 -->
+    <select id="getDownloadList" parameterType="java.lang.String" resultType="com.zqgame.models.DownloadInfo"> 
+		<![CDATA[ 
+			SELECT
+				d.id,
+       			typeId,
+       			d.index,
+       			fileName,
+       			md5,
+       			fileBulk,
+       			versionNumber,
+       			upUrl,
+       			fileSpak,
+       			issueTime
+   		 	FROM
+   		        kz_download d,kz_type t
+   		 	WHERE
+   		 		d.typeId = t.id AND t.dirName = #{dirName}
+   		 	ORDER BY
+   		        d.index           
+   		]]>
+	</select> 
+</mapper>

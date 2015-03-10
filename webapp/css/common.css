@@ -1,0 +1,119 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+/*全局样式*/
+html,body{-webkit-text-size-adjust:none;}
+*{margin: 0; padding: 0;}
+a{color: #000; text-decoration: none; line-height:100%;}
+div,table,th,td,a{ font-weight:normal;line-height:100%;}
+ul, li, ol, dl, dd, dt {list-style: none outside none;}
+img {border: medium none; display: inline-block;}
+.float_l {float: left; display:inline;}
+.float_r {float: right; display:inline;}
+.clear {clear: both;}
+.font_size0{ font-size:0;}
+
+/*通用颜色样式*/
+.color_yellow,.color_yellow *{ color:#FFC770;}
+.color_yellow1, .color_yellow1 *{ color:#FFA91A;}
+.color_qing,.color_qing *{ color:#4BBAA7;}
+.color_gree,.color_gree *{ color:#249600;}
+.color_hui,.color_hui *{ color:#959593;}
+.color_red,.color_red *{ color:#FF0000;}
+.color_deep_red, .color_deep_red *{ color:#870909;}
+.color_blue,.color_blue *{ color:#2EABE3;}
+.color_bai,.color_bai *{ color:#fff;}
+.color_peak,.color_peak *{ color:#AA5E8B;}
+.color_fenhuang,.color_fenhuang *{ color:#FACBAD}
+.color_hei,.color_hei *{ color:#000}
+.color_orange,.color_orange *{ color:#CC6633;}
+
+section, article, aside, header, footer, nav, dialog, figure {
+    display: block;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-size: 100%;
+    font-weight: normal;
+}
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, form, input, p, th, td {
+    font-family: "宋体",Tahoma,sans-serif;
+}
+
+em,th{ font-style:normal;}
+/*公共尾部*//*底部LOGO*/
+footer.index_footer{ clear:both; width:100%; display:block; position:relative; }
+.ft_c{margin:0 auto; width:980px; text-align:left; padding: 50px 0 30px 20px; font-family:"宋体";}
+.ft_logo{ float:left; margin-right:25px; height:80px;}
+.ft_logo a{ padding:0 10px;}
+footer.index_footer p{ line-height:23px; color:#ccc;}
+.ft_logo_zqgame{ height:59px; display:inline-block; }
+.ft_logo_wj{ height:59px; display:inline-block; }
+.ft_logo_aw{ height:59px; display:inline-block; }
+
+.SJ{ text-indent:2em;}
+
+
+
+/*mytable样式1*/
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    font: 12px/20px Verdana,Simsun,Helvetica,Arial,sans-serif;
+}
+.my_table {
+    background-color: #FFFFFF;
+    border-top: 2px solid #D13333;
+    margin: 5px 0;
+    text-align: center;
+    width: 100%;
+}
+.my_table th, .my_table td {
+    line-height: 22px;
+    padding: 5px 10px;
+}
+.my_table thead th {
+    background: none repeat scroll 0 0 #F2F2F2;
+    border: 1px solid #D4D4D4;
+    color: #CD0000;
+}
+.my_table tbody th {
+    border: 1px solid #E9DCC1;
+    font-weight: normal;
+}
+.my_table td {
+    border: 1px solid #E9DCC1;
+}
+.login_before .my_table{ width:35%; margin:0 auto;}
+
+
+.page {
+    clear: both;
+    text-align: center;
+}
+.page a {
+    border: 1px solid #9AAFE5;
+    color: #2E6AB1;
+    margin-right: 5px;
+    padding: 2px 5px;
+}
+.page a.link_null {
+    color: #ACA899;
+}
+
+.mb10 {
+    margin-bottom: 10px;
+}
+.mt10 {
+    margin-top: 10px;
+}
+.ml10 {
+    margin-left: 10px;
+}
+.mr10 {
+    margin-right: 10px;
+}
+.mr20 {
+    margin-right: 20px;
+}

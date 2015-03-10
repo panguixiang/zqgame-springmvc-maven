@@ -1,0 +1,96 @@
+#pbtop {
+	WIDTH: 100%; BACKGROUND: url(http://top.zqgame.com/ad/images/topTile.png) repeat-x; HEIGHT: 43px
+}
+#top_main {
+	POSITION: relative; MARGIN: 0px auto; WIDTH: 960px; HEIGHT: 43px; COLOR: #666
+}
+#top_main A.login {
+	COLOR: #666; TEXT-DECORATION: none
+}
+#top_main A.login:hover {
+	COLOR: #cc0000
+}
+.topLogo {
+	WIDTH: 260px
+}
+.topAd {
+	LINE-HEIGHT: 24px; MARGIN-TOP: 8px; WIDTH: 470px; FLOAT: left; HEIGHT: 24px; MARGIN-LEFT: 10px; OVERFLOW: hidden
+}
+.topAd SPAN {
+	COLOR: #666; FONT-WEIGHT: bold
+}
+.topAd A {
+	COLOR: #0000ff; MARGIN-LEFT: 15px; TEXT-DECORATION: none
+}
+.topAd A:hover {
+	COLOR: #cc0000; TEXT-DECORATION: underline
+}
+.slogan {
+	VERTICAL-ALIGN: -14px
+}
+.urTop {
+	TEXT-ALIGN: right; MARGIN-TOP: 10px; WIDTH: 210px; FLOAT: right
+}
+.urTop LI {
+	DISPLAY: inline
+}
+A.aServer {
+	WIDTH: 75px; DISPLAY: inline-block; BACKGROUND: url(http://top.zqgame.com/ad/images/service.png) no-repeat; HEIGHT: 23px; VERTICAL-ALIGN: middle; _height: 24px
+}
+A.aServerHover {
+	WIDTH: 75px; DISPLAY: inline-block; BACKGROUND: url(http://top.zqgame.com/ad/images/serviceHover.png) no-repeat; HEIGHT: 23px; VERTICAL-ALIGN: middle; _height: 24px
+}
+A.aGame {
+	WIDTH: 91px; DISPLAY: inline-block; BACKGROUND: url(http://top.zqgame.com/ad/images/game.png) no-repeat; HEIGHT: 23px; VERTICAL-ALIGN: middle; _height: 24px
+}
+A.aGameHover {
+	WIDTH: 91px; DISPLAY: inline-block; BACKGROUND: url(http://top.zqgame.com/ad/images/gameHover.png) no-repeat; HEIGHT: 23px; VERTICAL-ALIGN: middle; _height: 24px
+}
+.prelative {
+	
+}
+.topNav {
+	Z-INDEX: 99999; BORDER-BOTTOM: #ccc 1px solid; POSITION: absolute; BORDER-LEFT: #ccc 1px solid; PADDING-BOTTOM: 0px; PADDING-LEFT: 0px; WIDTH: 73px; PADDING-RIGHT: 0px; BACKGROUND: #fff; BORDER-TOP: 0px; TOP: 16px; BORDER-RIGHT: #ccc 1px solid; PADDING-TOP: 5px; LEFT: 0px
+}
+.topNav A {
+	TEXT-ALIGN: left; LINE-HEIGHT: 22px; MARGIN-TOP: 3px; DISPLAY: block; HEIGHT: 22px; COLOR: #333; TEXT-DECORATION: none; _height: 16px; _padding: 3px 0
+}
+.topNav A:hover {
+	BACKGROUND: #1f81d8; COLOR: #fff
+}
+.topGame {
+	Z-INDEX: 99999; BORDER-BOTTOM: #ccc 1px solid; POSITION: absolute; BORDER-LEFT: #ccc 1px solid; PADDING-BOTTOM: 6px; PADDING-LEFT: 10px; WIDTH: 440px; PADDING-RIGHT: 10px; BACKGROUND: #fff; BORDER-TOP: #ccc 1px solid; TOP: 19px; BORDER-RIGHT: #ccc 1px solid; PADDING-TOP: 6px; LEFT: -371px
+}
+.gameH {
+	LINE-HEIGHT: 20px; HEIGHT: 20px; COLOR: #666; FONT-SIZE: 12px; FONT-WEIGHT: bold
+}
+.gameH SPAN {
+	COLOR: #bebebe; FONT-WEIGHT: bold
+}
+.gameList LI {
+	MARGIN-RIGHT: 15px
+}
+.gameList LI A {
+	LINE-HEIGHT: 20px; PADDING-LEFT: 8px; WIDTH: 60px; DISPLAY: inline-block; MARGIN-BOTTOM: 3px; BACKGROUND: url(http://top.zqgame.com/ad/images/list_ico.jpg) no-repeat 0px center; HEIGHT: 20px; COLOR: #666; TEXT-DECORATION: none
+}
+.gameList LI A:hover {
+	COLOR: #cc0000; TEXT-DECORATION: underline
+}
+.splayer {
+	Z-INDEX: 99999; POSITION: absolute; WIDTH: 89px; DISPLAY: block; BACKGROUND: #fff; HEIGHT: 3px; TOP: -2px; RIGHT: 0px
+}
+BODY {
+	BACKGROUND-POSITION: center 43px
+}
+.daohang {
+	POSITION: static !important
+}
+.swfbox {
+	TOP: 43px !important
+}
+#hyadbox A {
+	COLOR: #666
+}
+#hyadbox A:hover {
+	COLOR: #f00
+}

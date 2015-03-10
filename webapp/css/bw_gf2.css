@@ -1,0 +1,78 @@
+BODY {
+	TEXT-ALIGN: center; BACKGROUND-COLOR: transparent; MARGIN: auto; FONT-FAMILY: ËÎÌו, Arial, Helvetica, sans-serif; COLOR: #504646; FONT-SIZE: 12px
+}
+.title_style A {
+	TEXT-DECORATION: none
+}
+.title_style A:hover {
+	BORDER-BOTTOM: #ff6c00 1px dashed; LINE-HEIGHT: 20px; COLOR: #ff0000; TEXT-DECORATION: none
+}
+.asklist_table {
+	BORDER-BOTTOM: 0px; TEXT-ALIGN: left; BORDER-LEFT: 0px; LINE-HEIGHT: 20px; MARGIN: auto; WIDTH: 100%; BORDER-TOP: 0px; BORDER-RIGHT: 0px
+}
+.title_icon_style {
+	DISPLAY: none; COLOR: #504646
+}
+.title_title_style {
+	DISPLAY: none; COLOR: #504646
+}
+.title_num_style {
+	TEXT-ALIGN: center; DISPLAY: none; COLOR: #504646
+}
+.title_status_style {
+	TEXT-ALIGN: center; DISPLAY: none; COLOR: #504646
+}
+.title_time_style {
+	DISPLAY: none
+}
+.title_score_style {
+	DISPLAY: none
+}
+.title_user_style {
+	DISPLAY: none
+}
+.title_icon {
+	DISPLAY: none
+}
+.point_icon {
+	WIDTH: 6px; COLOR: #504646; FONT-SIZE: 22px; magin-left: 3px
+}
+.title_style {
+	PADDING-TOP: 2px
+}
+.title_style A {
+	COLOR: #504646
+}
+.num_style {
+	TEXT-ALIGN: center; COLOR: #504646
+}
+.status_style {
+	TEXT-ALIGN: center; COLOR: #504646
+}
+.time_style {
+	DISPLAY: none
+}
+.score_style {
+	DISPLAY: none
+}
+.user_style {
+	DISPLAY: none
+}
+.user_style A {
+	DISPLAY: none; COLOR: #504646
+}
+.li_split_style {
+	
+}
+.split_style {
+	
+}
+.mainlist_page {
+	TEXT-ALIGN: center; MARGIN-TOP: 0px; WIDTH: 344px; DISPLAY: none
+}
+.mainlist_page A {
+	DISPLAY: none; COLOR: #504646; TEXT-DECORATION: none
+}
+.mainlist_page A:hover {
+	DISPLAY: none; COLOR: #ff6c00; TEXT-DECORATION: none
+}

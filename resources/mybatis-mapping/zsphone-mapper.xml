@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zqgame.mappers.ZsPhoneDao">
+
+<!-- 查询单条ZsPhone -->
+    <select id="queryZsPhone" resultType="com.zqgame.models.ZsPhone"> 
+		SELECT 
+			<![CDATA[
+				id,
+	 			phone,
+	  			state,
+	 			time,
+				passName as userName,
+	 			cardCode 
+   		 FROM
+   		        zs_phone
+   		 WHERE       
+   				]]>
+   		<if test="zsPhone.id != null">
+   			<![CDATA[
+   				id = #{zsPhone.id}
+   				]]>
+   		</if>
+   		<if test="zsPhone.phone != null and zsPhone.phone != '' ">
+   			<![CDATA[
+   				phone = #{zsPhone.phone}
+   				]]>
+   		</if>
+   		<if test="zsPhone.state != null">
+   			<![CDATA[
+   				state = #{zsPhone.state}
+   				]]>
+   		</if>
+   		<if test="zsPhone.time != null and zsPhone.time != '' ">
+   			<![CDATA[
+   				time = #{zsPhone.time}
+   				]]>
+   		</if>
+   		<if test="zsPhone.userName != null and zsPhone.userName != '' ">
+   			<![CDATA[
+   				passName = #{zsPhone.userName}
+   				]]>
+   		</if>
+   		<if test="zsPhone.cardCode != null and zsPhone.cardCode != '' ">
+   			<![CDATA[
+   				cardCode = #{zsPhone.cardCode}
+   				]]>
+   		</if>		
+   		 LIMIT
+   		        1     
+	</select> 
+	<!-- 修改新闻 -->
+	<update id="updateZsPhone" parameterType="com.zqgame.models.ZsPhone">
+	  <![CDATA[ 
+			UPDATE zs_phone
+	  ]]>		
+	  <set>		
+	  	<if test="zsPhone.phone != null">
+	  		<![CDATA[
+       			phone = #{zsPhone.phone},
+       			]]>
+      	</if>
+      	<if test="zsPhone.state != null">
+      		<![CDATA[
+       			state = #{zsPhone.state},
+       			]]>
+       	</if>
+   		<![CDATA[
+     			time = now(),
+     			]]>
+      	<if test="zsPhone.userName != null"> 	
+      		<![CDATA[		
+       			passName = #{zsPhone.userName},
+       			]]>
+       	</if>
+      	<if test="zsPhone.cardCode != null">
+      		<![CDATA[
+       			cardCode = #{zsPhone.cardCode},
+      		 	]]>
+       	</if>
+	</set>		
+			WHERE 
+				id = #{zsPhone.id}
+	</update> 
+	
+	
+	
+	<select id="getBespeakCardCodeByMobileOrEmail" resultType="map"> 
+		SELECT 
+			<![CDATA[
+				id,
+	 			mobile,
+	  			email
+   		 FROM
+   		        bespeak_cardcode
+   		 WHERE       
+   				]]>
+   		<if test="mobile != null">
+   			<![CDATA[
+   				mobile = #{mobile}
+   				]]>
+   		</if>
+   		<if test="email != null">
+   			<![CDATA[
+   				or email = #{email}
+   				]]>
+   		</if>
+   		LIMIT 1;
+   	</select>
+	
+	<!-- 预约激活码  war2 -->
+	<insert id="insertBespeakCardCode">
+	  <![CDATA[ 
+			INSERT INTO bespeak_cardcode(
+       			id,
+       			mobile,
+       			email
+       		       )
+	    	VALUES(
+	    		DEFAULT,
+	    		#{mobile}, 
+	    		#{email}
+			)
+		 ]]>
+	</insert>
+	
+</mapper>

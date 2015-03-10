@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zqgame.mappers.BwActDao">	
+	<!-- 分页查询兵王活动列表 -->
+    <select id="bwActPageList" resultType="com.zqgame.models.BwAct"> 
+		<![CDATA[ 
+			SELECT 
+				ID,
+       			actTitle,
+       			actTime,
+       			actState,
+       			actFirst,
+       			actPicpath,
+       			actUrl,
+       			addTime,
+       			standby
+   		 	FROM
+   		        bw_act
+   		    ORDER BY
+   		        actState DESC,
+   		        actFirst DESC,
+   		        addTime DESC        
+   			 ]]>
+	</select> 
+</mapper>

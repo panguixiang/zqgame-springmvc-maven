@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
+		http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context-3.0.xsd
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
+
+	<!-- Scans the classpath of this application for @Components to deploy as 
+		beans -->
+	<context:component-scan base-package="com.zqgame.controllers" />
+    <context:component-scan base-package="com.kzgame.controllers" />
+    <context:component-scan base-package="com.zsgame.controllers" />
+    <context:component-scan base-package="com.war2game.controllers" />
+	<!-- Configures the @Controller programming model -->
+	<mvc:annotation-driven />
+
+	<!-- Enable transaction demarcation with annotations -->
+
+	<!-- Forwards requests to the "/" resource to the "welcome" view -->
+	<!-- <mvc:view-controller path="/" view-name="welcome"/> -->
+<!--     <mvc:view-controller path="/pagefooter" view-name="pager_footer" /> -->
+	<!-- Configures Handler Interceptors -->
+	<mvc:interceptors>
+		<!-- Changes the locale when a 'locale' request parameter is sent; e.g. 
+			/?locale=de -->
+
+		<bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor" />
+		<mvc:interceptor>
+			<mvc:mapping path="/article/*/*page" />
+			<mvc:mapping path="/index/*/*page/**" />
+			<bean class="com.zqgame.interceptors.PaginationInterceptor">
+				<property name="pageSize" value="3" />
+			</bean>
+		</mvc:interceptor>
+	</mvc:interceptors>
+	<!-- 解决进入首页请求被dispatcherServlet所拦截 -->
+	<mvc:default-servlet-handler />
+</beans>

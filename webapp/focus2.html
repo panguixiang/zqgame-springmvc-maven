@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>兵王客户端轮播位</title>
+<link href="/css/common.css" rel="stylesheet" type="text/css" />
+<SCRIPT type=text/javascript src="http://static.zqgame.com/js/jquery-1.7.2.js"></SCRIPT>
+<style>
+.focus_wp{ width:331px; height:257px; overflow:hidden; position:relative;} 
+.focusbox{ width:331px; height:257px; overflow:hidden;}
+#focus_tab{
+	position:absolute; right:5px; bottom:5px;
+}
+#focus_tab li {
+	background:url(images/focus_li.jpg) no-repeat;
+    color: #7E7A73;
+    cursor: pointer;
+    float: left;
+    height: 17px;
+    list-style: none outside none;
+    margin-right: 4px;
+    overflow: hidden;
+    text-align: center;
+    width: 16px;
+	line-height:17px;
+}
+#focus_tab li.on{
+    background:url(images/focus_li_on.jpg) no-repeat;
+    color: #FFFFFF;
+	line-height:17px;
+    font-weight: bold;
+	line-height:14px;}
+#focus_tab li:hover, #focus_tab li.active {
+    background:url(images/focus_li_on.jpg) no-repeat;
+    color: #FFFFFF;
+	line-height:17px;
+    font-weight: bold;
+	line-height:14px;
+}
+</style>
+
+</head>
+<body>
+<div id="focus_wpID" class="focus_wp">
+  <div id="focusbox">
+	<ul id="focusboxcontentid" class="bd">
+	<script type="text/javascript">
+	$.ajax({
+		url:"/indexnews",
+		type : "POST",
+		dataType: "json",
+		success:function(data) {
+			$("#focusboxcontentid").empty();
+			//首页轮播活动图片
+			var createhtml="";
+			var jsonObj;
+			if(data.carouselPicList != null){
+				jsonObj = data.carouselPicList; 
+				$(jsonObj).each(function(index) {    
+					var val = jsonObj[index];
+					createhtml +="<LI><A href='" +val.imageUrl + "' target=_blank> <IMG width='331' height='257' border='0' src='"
+					+val.imagePath+"'/></A></LI>"; 	 
+				});
+				$("#focusboxcontentid").html(createhtml);
+				
+				}
+			}
+		});
+	</script>
+	</ul>
+  </div>
+  <ul id="focus_tab">
+  <li>1</li>
+  <li>2</li>
+  <li>3</li>
+  <li>4</li>
+  <li>5</li>
+  </ul>
+</div>
+</body>
+<script type="text/javascript" src="http://static.zqgame.com/js/superslide.min.js"></script>
+<script type="text/javascript">
+	jQuery("#focus_wpID").slide({"titCell":"#focus_tab li","delayTime":"1000","interTime":"4500","autoPlay":"true"});
+</script>
+</html>

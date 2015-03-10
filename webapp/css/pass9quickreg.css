@@ -1,0 +1,67 @@
+.deepred{ color:#f7f0d4}
+body{ margin:0; padding:0;background-color:transparent; font-size:12px; color:#312222;padding-top:5px;}
+form{ margin:0; padding:0;}
+a{ color:#ffcc95; text-decoration:none}
+a:hover{ color:#FF0000}
+.clear{ font-size:0;clear:both;}
+.divline{ clear:both; height:30px;}
+.divleft{ float:left; width:80px; height:24px;}
+.inputLabel{ width:60px;font-family:arial,"宋体";  color:#f7f0d4;}
+.divcenter{ float:left; height:24px; text-align:center;}
+.div_regimg{ float:left; height:24px;}
+.divcenter input{}
+.divright{ position:absolute;width:110px; left:110px; top:118px; z-index:100000;}
+#regimdDiv a, #line_license a {font-size:12px;}
+
+.hintBox{ background:#ffd; padding:5px; border:#000000 1px solid; max-width:310px;}
+#line_license{ height:22px;}
+#line_6{ height:50px;}
+.submit_button{ background:url(../frontimages/home/btn11.gif) no-repeat 0 0; width:120px; height:39px; border:none; text-align:center; display:block; margin: 0 auto; text-indent:-9999px;}
+#login{ padding:50px 0 0 140px;}
+#login .loginTitle{width:210px; height:62px;}
+#login .linkReg{ display:block; width:218px; height:89px; text-indent:-10000px; overflow:hidden; position:absolute; left:600px; top:100px;}
+#login .linkRegTxt{ position:absolute; left:600px; top:85px;}
+#login .btnLogin{width:116px; height:44px; border:none; cursor:pointer; margin-top:20px; display:inline-block; margin-left:40px;}
+#login .linkPass{ position:absolute; left:376px; top:146px;}
+#input_6{ width:47px;}
+#input_2{ width:120px;}
+#input_0,#input_1{ width:120px;}
+#regimdDiv{ padding-left:2px; }
+
+#container{margin:0 auto;}
+.regTitle{ display:none;}
+#submitDiv{ padding-left:40px;}
+#lincenseDiv{ height:20px; padding-left:12px; padding-top:5px; line-height:20px;}
+#licenseFlag{ }
+
+#logined{ padding-top:70px;}
+.loginedTitle{ text-align:center; font-size:14px; height:40px;}
+.loginedBtn{ height:100px; padding:30px 0;}
+.loginedTime{ text-align:center;}
+#startGame{display:block; margin:0 auto;width:216px; height:90px; text-indent:-10000px; overflow:hidden;}
+#btnLogout{ position:absolute; left:600px; top:210px;}
+.inputbox{width:120px;height:14px;border:0;}
+#regcode{width:40px;}
+.blockUI{left:40%!important;}
+.blockOverlay{display:none;visibility:hidden;}
+#login .divleft{text-align:center;}
+
+*{padding:0; margin:0;}
+.container {width:100%;}
+.tips_1 {width:352px; height:82px;  border:1px solid #ffffff; margin:0 auto;position:absolute; top:50%; left:50%; margin:-82px 0px 0px -105px; text-align:center; padding-top:84px;} 
+.tips_1_btn {width:101px; height:37px; display:block; margin:0 auto; margin-top:15px;}
+#hint0{ top:46px}
+#hint1{ top:70px}
+#hint2{ top:104px}
+#hint4{ top:112px}
+#hint5{ top:136px}
+#hint3{ top:140px; width:130px; left:100px}
+.rad1{ color:#f7f0d4; float:left; display:inline; width:92px; margin-left:25px; height:22px;}
+.rad1 input{ vertical-align:middle; margin-right:3px;}
+.rad2{ color:#f7f0d4; float:left; display:inline; width:72px; height:22px;}
+.rad2 input{ vertical-align:middle; margin-right:3px;}
+#input_8{ }
+.checkcodeImg{ vertical-align:middle; margin-left:2px; width:60px;}
+
+
+
